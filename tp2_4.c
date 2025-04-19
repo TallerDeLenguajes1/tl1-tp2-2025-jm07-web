@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define CANT_PC 5
-
 //Defino la estructura 
 struct compu {
     int velocidad; // Velocidad de procesamiento en GHz (valor entre 1 y 3)
@@ -13,34 +11,45 @@ struct compu {
 };
 
 typedef struct compu compu;
+
+//Defino las funciones
+void listarPCs(compu pcs[], int cantidad);
    
 
 int main(){
-    compu PCs[CANT_PC];
+    int cant_PC = 5;
+    compu PCs[cant_PC];
     char tipos[6][10] = {"Intel", "AMD", "Celeron", "Athlon", "Core","Pentium"};
 
     srand(time(NULL));
 
-    for (int i = 0; i < CANT_PC; i++)
+    for (int i = 0; i < cant_PC; i++)
     {
         PCs[i].velocidad = 1 + rand() % 3;
         PCs[i].anio = 2015 + rand() % 10;
         PCs[i].cantidad_nucleos = 1 + rand() % 8;
         PCs[i].tipo_cpu = tipos[rand() % 6];
     }
+    
 
-    for (int i = 0; i < CANT_PC; i++)
-    {
-        printf("PC %d: \n",i+1);
-        printf("  Velo: %d \n",PCs[i].velocidad);
-        printf("  Anio: %d \n",PCs[i].anio);
-        printf("  Cant nucleos: %d \n",PCs[i].cantidad_nucleos);
-        printf("  Tipo: %s \n",PCs[i].tipo_cpu);
-        printf("\n");
-    }
-    
-    
-    
+    listarPCs(PCs, cant_PC);
+
 
     return 0;
+}
+
+//Desarrollo las funciones
+//Función 1
+void listarPCs(compu pcs[], int cantidad)
+{
+    for (int i = 0; i < cantidad; i++)
+    {
+        printf("PC %d: \n", i+1);
+        printf("  Velocidad: %d \n",pcs[i].velocidad);
+        printf("  Anio: %d \n",pcs[i].anio);
+        printf("  Cantidad de nucleos: %d \n",pcs[i].cantidad_nucleos);
+        printf("  Tipo de PC: %s \n",pcs[i].tipo_cpu);
+        printf("\n");
+    }
+
 }
