@@ -14,6 +14,7 @@ typedef struct compu compu;
 
 //Defino las funciones
 void listarPCs(compu pcs[], int cantidad);
+void mostrarMasVieja(compu pcs[], int cantidad);
    
 
 int main(){
@@ -33,6 +34,7 @@ int main(){
     
 
     listarPCs(PCs, cant_PC);
+    mostrarMasVieja(PCs, cant_PC);
 
 
     return 0;
@@ -48,8 +50,31 @@ void listarPCs(compu pcs[], int cantidad)
         printf("  Velocidad: %d \n",pcs[i].velocidad);
         printf("  Anio: %d \n",pcs[i].anio);
         printf("  Cantidad de nucleos: %d \n",pcs[i].cantidad_nucleos);
-        printf("  Tipo de PC: %s \n",pcs[i].tipo_cpu);
+        printf("  Tipo: %s \n",pcs[i].tipo_cpu);
         printf("\n");
     }
 
+}
+
+//Función 2
+void mostrarMasVieja(compu pcs[], int cantidad)
+{
+    int tope = 2024, inidice = 0;
+    for (int i = 0; i < cantidad; i++)
+    {
+        if (pcs[i].anio < tope)
+        {
+            tope = pcs[i].anio; 
+            inidice = i;
+        }
+    }
+
+    printf("\nLa PC mas vieja es: \n");
+    printf("PC %d: \n", inidice+1);
+    printf("  Velocidad: %d \n",pcs[inidice].velocidad);
+    printf("  Anio: %d \n",pcs[inidice].anio);
+    printf("  Cantidad de nucleos: %d \n",pcs[inidice].cantidad_nucleos);
+    printf("  Tipo: %s \n",pcs[inidice].tipo_cpu);
+    printf("\n");
+    
 }
