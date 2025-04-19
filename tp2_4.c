@@ -15,8 +15,9 @@ typedef struct compu compu;
 //Defino las funciones
 void listarPCs(compu pcs[], int cantidad);
 void mostrarMasVieja(compu pcs[], int cantidad);
-   
+void mostrarMasVeloz(compu pcs[], int cantidad);
 
+//Programa principal
 int main(){
     int cant_PC = 5;
     compu PCs[cant_PC];
@@ -35,6 +36,7 @@ int main(){
 
     listarPCs(PCs, cant_PC);
     mostrarMasVieja(PCs, cant_PC);
+    mostrarMasVeloz(PCs, cant_PC);
 
 
     return 0;
@@ -59,7 +61,7 @@ void listarPCs(compu pcs[], int cantidad)
 //Función 2
 void mostrarMasVieja(compu pcs[], int cantidad)
 {
-    int tope = 2024, inidice = 0;
+    int tope = 2025, inidice = 0;
     for (int i = 0; i < cantidad; i++)
     {
         if (pcs[i].anio < tope)
@@ -77,4 +79,27 @@ void mostrarMasVieja(compu pcs[], int cantidad)
     printf("  Tipo: %s \n",pcs[inidice].tipo_cpu);
     printf("\n");
     
+}
+
+//Función 3
+void mostrarMasVeloz(compu pcs[], int cantidad)
+{
+    int max = 0, inidice = 0;
+    for (int i = 0; i < cantidad; i++)
+    {
+        if (pcs[i].velocidad > max)
+        {
+            max = pcs[i].velocidad; 
+            inidice = i;
+        }
+    }
+
+    printf("\nLa PC mas veloz es: \n");
+    printf("PC %d: \n", inidice+1);
+    printf("  Velocidad: %d \n",pcs[inidice].velocidad);
+    printf("  Anio: %d \n",pcs[inidice].anio);
+    printf("  Cantidad de nucleos: %d \n",pcs[inidice].cantidad_nucleos);
+    printf("  Tipo: %s \n",pcs[inidice].tipo_cpu);
+    printf("\n");
+
 }
