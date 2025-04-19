@@ -1,0 +1,3 @@
+1. No puedo ver el tp2_1_2.c porque ese archivo está en la rama Opcion_2 .
+2. La diferencia que noto es que se formó una ramita llamada Opcion_2 que sale desde la rama main.
+3. Noté que la rama Opcion_2 ahora no solo sale de la rama main sino que se volvió a unir a dicha rama principal. Además ya se puede ver el archivo tp2_1_2.c .
